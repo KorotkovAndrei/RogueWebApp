@@ -10,6 +10,7 @@ buildscript {
 	}
 }
 plugins {
+	
 	id 'org.springframework.boot' version '2.2.6.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
@@ -18,6 +19,7 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: "com.github.node-gradle.node"
 node {
 	download = true
 	version = "12.13.1"
@@ -43,7 +45,7 @@ repositories {
 }
 
 dependencies {
-
+	classpath "com.github.node-gradle:gradle-node-plugin:2.2.4"
 	compile 'io.sentry:sentry-spring:1.7.16'
 	compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.792'
 	compile('org.postgresql:postgresql')
