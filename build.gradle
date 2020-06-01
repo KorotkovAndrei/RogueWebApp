@@ -10,20 +10,25 @@ buildscript {
 	}
 }
 plugins {
-	id "com.moowork.node" version "1.3.1"
+	
 	id 'org.springframework.boot' version '2.2.6.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
-
+	id("com.github.node-gradle.node") version "2.2.0"
 }
 apply plugin: 'java'
-apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 node {
 	download = true
-
+	version = "12.16.3"
+	npmVersion = "6.14.4"
+	yarnVersion = "1.22.4"
+	nodeModulesDir = project.file("ui")
+	workDir = project.file("${project.buildDir}/nodejs")
+	npmWorkDir = project.file("${project.buildDir}/npm")
+	yarnWorkDir = project.file("${project.buildDir}/yarn")
 }
 group = 'rogue'
 version = '0.0.1-SNAPSHOT'
@@ -42,28 +47,21 @@ repositories {
 dependencies {
 	compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.792'
 	compile('org.postgresql:postgresql')
-	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.3.0.RELEASE'
-	compile('org.springframework.boot:spring-boot-starter-websocket')
+
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.3.0.RELEASE'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.3.0.RELEASE'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.3.0.RELEASE'
 	compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: '5.3.2.RELEASE'
 	compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.3.0.RELEASE'
-	// https://mvnrepository.com/artifact/org.springframework/spring-jdbc
-	compile group: 'org.springframework', name: 'spring-jdbc', version: '5.2.6.RELEASE'
 
 
 	compile group: 'org.webjars.npm', name: 'axios', version: '0.19.2'
 
-	// https://mvnrepository.com/artifact/junit/junit
-	compile group: 'junit', name: 'junit', version: '4.13'
-	// https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf
 
 
-
-
-
+	
 }
 
 test {
