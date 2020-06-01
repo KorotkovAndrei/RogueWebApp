@@ -45,8 +45,6 @@ repositories {
 }
 
 dependencies {
-
-	compile 'io.sentry:sentry-spring:1.7.16'
 	compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.792'
 	compile('org.postgresql:postgresql')
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.3.0.RELEASE'
