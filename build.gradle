@@ -10,11 +10,11 @@ buildscript {
 	}
 }
 plugins {
-	
+	id "com.moowork.node" version "1.3.1"
 	id 'org.springframework.boot' version '2.2.6.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
-	id("com.github.node-gradle.node") version "2.2.0"
+
 }
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -23,13 +23,7 @@ apply plugin: 'io.spring.dependency-management'
 
 node {
 	download = true
-	version = "12.16.3"
-	npmVersion = "6.14.4"
-	yarnVersion = "1.22.4"
-	nodeModulesDir = project.file("ui")
-	workDir = project.file("${project.buildDir}/nodejs")
-	npmWorkDir = project.file("${project.buildDir}/npm")
-	yarnWorkDir = project.file("${project.buildDir}/yarn")
+
 }
 group = 'rogue'
 version = '0.0.1-SNAPSHOT'
