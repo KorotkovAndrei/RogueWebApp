@@ -17,6 +17,7 @@ plugins {
 	id("com.github.node-gradle.node") version "2.2.0"
 }
 apply plugin: 'java'
+apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
