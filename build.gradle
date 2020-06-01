@@ -48,7 +48,7 @@ dependencies {
 	compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.792'
 	compile('org.postgresql:postgresql')
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.3.0.RELEASE'
-	compile("org.springframework.boot:spring-boot-starter-websocket")
+	compile('org.springframework.boot:spring-boot-starter-websocket')
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.3.0.RELEASE'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.3.0.RELEASE'
@@ -60,7 +60,7 @@ dependencies {
 	compile group: 'org.webjars.npm', name: 'axios', version: '0.19.2'
 
 	// https://mvnrepository.com/artifact/junit/junit
-	testCompile group: 'junit', name: 'junit', version: '4.13'
+	compile group: 'junit', name: 'junit', version: '4.13'
 	// https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf
 
 
