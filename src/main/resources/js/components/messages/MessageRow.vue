@@ -25,8 +25,9 @@
             methods: {
                 temp(){
                     try {
-                        var temp = document.getElementById("helper").getAttribute("data-name")
-                        return temp
+                        //var temp = document.getElementById("helper").getAttribute("data-name")
+                        //return temp
+                        return true
                      }
                     catch(error) {
                         console.error(error)
