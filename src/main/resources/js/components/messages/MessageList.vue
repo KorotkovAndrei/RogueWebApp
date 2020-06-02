@@ -42,6 +42,7 @@
             }
         }
     }
+    console.log("check 2");
 </script>
 
 <style>
