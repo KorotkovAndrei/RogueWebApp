@@ -15,10 +15,10 @@ module.exports = merge(common, {
         path: path.resolve(__dirname, 'src', 'main', 'resources','static', 'js'),
     },
     devServer: {
-     disableHostCheck: true,
+
      contentBase: ‘./dist’,
      compress: true,
-     inline: true,
+
      port:server_port,
      host:server_host
 
