@@ -87,7 +87,7 @@
                 let formData = new FormData();
                 formData.append('file', this.file);
                  try {
-                    const response =  fetch('http://localhost:9000/message/upload', {
+                    const response =  fetch('https://funkydisco.herokuapp.com/message/upload', {
                     method: 'POST',
                     body: formData
                     })
