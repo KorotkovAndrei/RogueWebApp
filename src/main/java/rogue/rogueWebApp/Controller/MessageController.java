@@ -38,7 +38,7 @@ public class MessageController {
         this.messageRepo = messageRepo;
     }
 
-
+    @CrossOrigin(origins = "http://localhost:4000")
     @GetMapping
     public List<Message> list(){
         return messageRepo.findAll();

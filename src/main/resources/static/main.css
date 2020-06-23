@@ -1,0 +1,17 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-wrapper {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.main-section-message {
+    display: flex;
+}
+
+.main-section-message img {
+    height: 200px;
+    width: auto;
+}
