@@ -48,8 +48,6 @@ public class MessageController {
         return message;
     }
 
-
-
     @PostMapping("/upload")
     public String uploadFile(@RequestPart(value = "file") MultipartFile multipartFile) {
 

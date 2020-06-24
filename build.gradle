@@ -34,12 +34,12 @@ node {
 group = 'rogue'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
-task buildFront(type: YarnTask) {
-	args = ['build']
-}
-yarn_install.dependsOn(yarn_cache_clean)
-buildFront.dependsOn(yarn_install)
-processResources.dependsOn(buildFront)
+//task buildFront(type: YarnTask) {
+//	args = ['build']
+//}
+//yarn_install.dependsOn(yarn_cache_clean)
+//buildFront.dependsOn(yarn_install)
+//processResources.dependsOn(buildFront)
 
 repositories {
 	mavenCentral()
@@ -59,10 +59,13 @@ dependencies {
 
 
 	compile group: 'org.webjars.npm', name: 'axios', version: '0.19.2'
+	compile group: 'com.auth0', name: 'auth0-spring-security-api', version:'1.0.0-rc.3'
+	compile group: 'io.jsonwebtoken', name: 'jjwt', version:'0.9.1'
 
 
 
-	
+
+
 }
 
 test {
