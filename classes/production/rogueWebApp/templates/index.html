@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROGUE</title>
+
+<!--    <script id="helper" data-name=true src="/js/main.js" th:if="${#authorization.expression('hasRole(''ADMIN'')')}"></script>
+    <script id="helper" data-name=false src="/js/main.js" th:unless="${#authorization.expression('hasRole(''ADMIN'')')}"></script>-->
+    <style>
+
+.logo {
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    height: 80%;
+}
+.topNav {
+    overflow: hidden;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 90%;
+    width: 100%;
+    text-align: right;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 170%;
+    color: black;
+}
+a {
+    position: absolute;
+    top: 50%;
+    right:2%;
+    padding: 14px 16px;
+    float:right;
+
+}
+a:link {
+    color: black;
+    text-decoration: none;
+}
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
+h1 {
+    position: absolute;
+    top:-20%;
+    right: 44%;
+    text-align:center;
+    font-size:3,5vw;
+}
+    </style>
+</head>
+<body>
+<div class="topNav" >
+    <h1>ROGUE</h1>
+    <img src="https://rogue-aws.s3.eu-central-1.amazonaws.com/logo.png" class="logo">
+    <a href="/about.html" style="margin-right: 6%">About</a>
+    <a href="https://roguethelizard.bigcartel.com/">Shop</a>
+    <form th:action="@{/logout}" method="post" sec:authorize="hasRole('ADMIN')">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+
+
+
+<div id = "app"></div>
+
+<script src="main.js" style="display: inline"></script>
+</body>
+</html>
