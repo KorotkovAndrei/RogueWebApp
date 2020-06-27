@@ -7,13 +7,31 @@
         <h1>Rogue web app</h1>
         <header>
             header content
-        </header>
 
+            <div class="auth-menu">
+                <div class="auth-menu-login hide">
+                    <input class="username" placeholder="usermane">
+                    <input class="password" placeholder="password" type="password">
+                    <button class="submit-button">submit</button>
+                </div>
+                <div class="auth-menu-logout hide">
+                    <span class="auth-logout-greeter">Hi </span>
+                    <button class="logout-button">Logout</button>
+                </div>
+            </div>
+        </header>
        <div class="main-wrapper">
            <section class="main-section">
+               <div class="main-section-message-form hide">
+                   <input class="file-input" type="file">
+                   <input class="title-input" placeholder="Title">
+                   <input class="subtitle-input" placeholder="Subtitle">
+                   <input class="text-input" placeholder="Text">
+                   <button class="add-message-button">Add message</button>
+               </div>
                <div class="main-section-messages-list"></div>
            </section>
        </div>
-        <script src="/js/index.js"></script>
+    <script src="./index.js"></script>
     </body>
 </html>
