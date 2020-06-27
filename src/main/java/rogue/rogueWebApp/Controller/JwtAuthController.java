@@ -2,6 +2,7 @@ package rogue.rogueWebApp.Controller;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.http.HttpStatus;
+import rogue.rogueWebApp.Domain.UserDTO;
 import rogue.rogueWebApp.config.JwtTokenUtil;
 import rogue.rogueWebApp.model.JwtRequest;
 import rogue.rogueWebApp.model.JwtResponse;
@@ -37,6 +38,11 @@ public class JwtAuthController {
         final String token = jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
     }
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
+        return ResponseEntity.ok(userDetailsService.save(user));
+    }
+
     private void authenticate(String username, String password) throws Exception {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));

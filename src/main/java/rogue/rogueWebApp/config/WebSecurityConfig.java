@@ -42,7 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/authenticate").permitAll()
+                .antMatchers("/authenticate","/register").permitAll()
                 .antMatchers("/token-check").permitAll()
                 .antMatchers("/message").permitAll()
                 .anyRequest().authenticated()
