@@ -46,11 +46,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 
     function getMessages() {
-        fetch('http://localhost:9000/message')
+        fetch('http://localhost:9000/get-messages')
             .then(kek => kek.json()).then(messagesArr => updateMessagesInDom(messagesArr));
     }
 
     function updateMessagesInDom(messagesArr) {
+        messagesList.innerHTML = '';
         messagesArr.forEach(({ creationDate, fileName, id, subTitle, text, title }) => messagesList.innerHTML += messageTemplate({creationDate, fileName, id, subTitle, text, title}))
     }
 
@@ -122,12 +123,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const formData = new FormData();
         formData.append("file", fileInput.files[0]);
 
-
-        fetch('http://localhost:9000/upload', {
+        fetch('http://localhost:9000/upload-image', {
             method: 'POST',
             body: formData,
             headers: {
-                Authorization: `Bearer ${requestConfig.token}`
+                Authorization: `Bearer ${requestConfig.token}`,
             }
         })
             .then(response => responseFromPromiseHandle(response))
@@ -144,7 +144,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     title,
                 };
 
-                return fetch('http://localhost:9000/upload', {
+                return fetch('http://localhost:9000/upload-message', {
                     method: 'POST',
                     body: JSON.stringify(body),
                     headers: {

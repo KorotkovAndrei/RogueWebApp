@@ -37,14 +37,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf().disable()
+        httpSecurity
+                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/authenticate","/register").permitAll()
+                .antMatchers("/authenticate").permitAll()
+                .antMatchers("/register").permitAll()
                 .antMatchers("/token-check").permitAll()
-                .antMatchers("/message").permitAll()
+                .antMatchers("/get-messages").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
