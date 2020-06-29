@@ -31,7 +31,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     function checkIfLogged() {
         requestConfig.token = localStorage.getItem('rogue-token');
-
         fetch('http://localhost:9000/token-check', {
             method: 'POST',
             headers: {

@@ -58,7 +58,7 @@ public class MessageController {
         try {
             File file = convertMultiPartToFile(multipartFile);
             String fileName = multipartFile.getOriginalFilename();
-            fileUrl = endpointUrl + "/" + bucketName + "/" + fileName;
+            fileUrl = endpointUrl + "/" + fileName;
             status = uploadFileTos3bucket(fileName, file);
             file.delete();
         } catch (Exception e) {
