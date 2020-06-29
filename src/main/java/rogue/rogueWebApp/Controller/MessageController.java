@@ -58,8 +58,8 @@ public class MessageController {
         try {
             File file = convertMultiPartToFile(multipartFile);
             String fileName = multipartFile.getOriginalFilename();
-            fileUrl = endpointUrl + "/" + bucketName + "/" + fileName;
-            status = uploadFileTos3bucket(fileName, file);
+            fileUrl = endpointUrl + "/" + fileName;
+            System.out.println("file url is: " + fileUrl);
             file.delete();
         } catch (Exception e) {
             return new ResponseEntity<String>("Image upload failed", HttpStatus.INTERNAL_SERVER_ERROR);
