@@ -59,7 +59,7 @@ public class MessageController {
             File file = convertMultiPartToFile(multipartFile);
             String fileName = multipartFile.getOriginalFilename();
             fileUrl = endpointUrl + "/" + fileName;
-            System.out.println("file url is: " + fileUrl);
+            uploadFileTos3bucket(fileName, file);
             file.delete();
         } catch (Exception e) {
             return new ResponseEntity<String>("Image upload failed", HttpStatus.INTERNAL_SERVER_ERROR);
@@ -83,14 +83,12 @@ public class MessageController {
         return convFile;
     }
 
-    private String uploadFileTos3bucket(String fileName, File file) throws Exception {
+    private void uploadFileTos3bucket(String fileName, File file) throws Exception {
         try {
             s3client.putObject(new PutObjectRequest(bucketName, fileName, file));
         } catch (AmazonServiceException e) {
             throw new Error("uploadFileTos3bucket().Uploading failed :" + e.getMessage());
         }
-
-        return "Uploading Successfull -> ";
     }
 
 

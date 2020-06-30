@@ -31,7 +31,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     function checkIfLogged() {
         requestConfig.token = localStorage.getItem('rogue-token');
-
         fetch('http://localhost:9000/token-check', {
             method: 'POST',
             headers: {
@@ -109,6 +108,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     function responseFromPromiseHandle(response) {
         if (!response.ok) {
+            console.log(response)
             throw Error(response.statusText);
         }
         return response;
@@ -132,13 +132,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
         })
             .then(response => responseFromPromiseHandle(response))
             .then(response => response.text())
-            .then(filename => {
+            .then(fileName => {
                 const subTitle = subtitleInput.value;
                 const text = textInput.value;
                 const title = titleInput.value;
 
                 const body = {
-                    filename,
+                    fileName,
                     subTitle,
                     text,
                     title,

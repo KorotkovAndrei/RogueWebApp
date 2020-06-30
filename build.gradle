@@ -28,18 +28,9 @@ node {
 	nodeModulesDir = project.file("ui")
 	workDir = project.file("${project.buildDir}/nodejs")
 	npmWorkDir = project.file("${project.buildDir}/npm")
-	yarnWorkDir = project.file("${project.buildDir}/yarn")
-	
 }
 group = 'rogue'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
-//task buildFront(type: YarnTask) {
-//	args = ['build']
-//}
-//yarn_install.dependsOn(yarn_cache_clean)
-//buildFront.dependsOn(yarn_install)
-//processResources.dependsOn(buildFront)
 
 repositories {
 	mavenCentral()
@@ -56,18 +47,12 @@ dependencies {
 	compile group: 'org.springframework.security', name: 'spring-security-taglibs', version: '5.3.2.RELEASE'
 	compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.3.0.RELEASE'
-// https://mvnrepository.com/artifact/junit/junit
 	testCompile group: 'junit', name: 'junit', version: '4.13'
 
 
 	compile group: 'org.webjars.npm', name: 'axios', version: '0.19.2'
 	compile group: 'com.auth0', name: 'auth0-spring-security-api', version:'1.0.0-rc.3'
 	compile group: 'io.jsonwebtoken', name: 'jjwt', version:'0.9.1'
-
-
-
-
-
 }
 
 test {
