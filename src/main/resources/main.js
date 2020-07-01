@@ -25,6 +25,7 @@ const serveFile = name => {
 };
 
 http.createServer((req, res) => {
+    console.log('WORKS!')
     const { url } = req;
     const name = url === '/' ? '/index.html' : url;
     const fileExt = path.extname(name).substring(1);
@@ -34,20 +35,4 @@ http.createServer((req, res) => {
     const stream = serveFile(name);
     stream.on('error', e => console.error(e));
     if (stream) stream.pipe(res);
-}).listen(4000);
-
-
-// "http://localhost:9000/message/upload"
-//
-// function saveMessage({ text, title, subtitle, filename }) {
-//     const message = { text, title, subtitle, filename };
-//
-//     fetch("http://localhost:9000/message", {
-//         headers: {
-//             'accept': 'application/json, text/plain, */*',
-//             'content-type': 'application/json;charset=UTF-8',
-//         },
-//         'body': JSON.stringify(message),
-//         'method': 'POST',
-//     }).then(a => a.json()).then(kek => console.log(kek))
-// }
+}).listen(process.env.PORT || 4000);
