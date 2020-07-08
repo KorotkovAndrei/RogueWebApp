@@ -9,28 +9,21 @@ buildscript {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
+
 plugins {
-	
 	id 'org.springframework.boot' version '2.2.6.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
-	id("com.github.node-gradle.node") version "2.2.0"
+	id "com.github.ManifestClasspath" version "0.1.0-RELEASE"
 }
+
 apply plugin: 'java'
+apply plugin: 'application'
+mainClassName = 'rogue.rogueWebApp.App'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-node {
-	download = true
-	version = "12.16.3"
-	npmVersion = "6.14.4"
-	yarnVersion = "1.22.4"
-	nodeModulesDir = project.file("ui")
-	workDir = project.file("${project.buildDir}/nodejs")
-	npmWorkDir = project.file("${project.buildDir}/npm")
-}
 group = 'rogue'
-version = '0.0.1-SNAPSHOT'
 
 repositories {
 	mavenCentral()
@@ -48,7 +41,6 @@ dependencies {
 	compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.3.0.RELEASE'
 	testCompile group: 'junit', name: 'junit', version: '4.13'
-
 
 	compile group: 'org.webjars.npm', name: 'axios', version: '0.19.2'
 	compile group: 'com.auth0', name: 'auth0-spring-security-api', version:'1.0.0-rc.3'
